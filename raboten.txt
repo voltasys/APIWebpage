@@ -1,0 +1,44 @@
+ul.get-pic--2{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1.5s, visibility 1.5s;
+    transform: translateY(0px);
+   
+}
+
+
+
+.autors{
+    transform: translateY(-171px);
+    transition: transform 0.5s ease-in;
+}
+
+
+.autors.active{
+    transform: translateY(0px);
+    transition: transform 0.5s ease-in;
+}
+
+
+ul.get-pic--1{
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1.5s, visibility 1.5s;
+
+    
+}
+ul.get-pic--1.active{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1.5s, visibility 1.5s;
+
+
+}
+
+ul.get-pic--2.active--2{
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1.5s, visibility 1.5s;
+    transform: translateY(-171px);
+    
+}

@@ -7,13 +7,43 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
+  
+  <nav class="nav">
+    <div class="logo-img">
+      <img src="logo\pexels-photo-6032147.webp" alt="Logo">
+      <h2 class="title">Sajt API</h2>
+    </div>
+      
+   
+    
+      <ul id="main">
+        <li><a href="#" class="home active--1">HOME</a></li>
+        <li><a href="#" class="get-pic">GET PICTURE</a>
+          <ul id="sec">
+            <li><a href="#">Nature</a></li>
+            <li><a href="#">Animals</a></li>
+            <li><a href="#">People</a></li>
+            <li><a href="#">Airports</a></li>
+            <li><a href="#">Lakes</a></li>
+          </ul>
+        </li>
+        <li ><a href="#" class="autors">LIST OF AUTORS</a>
+          <ul id="sec-1">
+            <li><a href="#">Nature</a></li>
+            <li><a href="#">Animals</a></li>
+            <li><a href="#">People</a></li>
+            <li><a href="#">Airports</a></li>
+            <li><a href="#">Lakes</a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+
+    </nav>
+
+
     <div class="container">
-      <div class="container-form">
-        <form method="post" action="/Img">
-          <input id="search" type="number" name="img" placeholder="Search.." />
-          <input id="btn" type="submit" value="Go" />
-        </form>
-      </div>
       <div class="container-img">
          <%if(locals.data.photos){%>
          <%data.photos.forEach(img=>{%>
@@ -25,5 +55,36 @@
       </div>  
      </div>
    
+<script>
+       const nav = document.querySelector(".nav")
+       const getPic = document.querySelector(".get-pic")
+        
+       const sec = document.getElementById("sec")
+       console.log(sec)
+       const autors = document.querySelector(".autors")
+       const sec_1 = document.getElementById("sec-1")
+       const x =sec.querySelectorAll('li');
+       console.log(x)
+
+
+ const y= "abcdef"
+  nav.addEventListener('click', function(e){
+    console.log(y.split(" ")[0])
+        console.log(e.target.className.split(" ")[0])
+        if (e.target.className ==='get-pic'){
+        sec.classList.toggle("active-visible")
+        autors.classList.toggle("active-visible")
+        sec_1.classList.toggle("active-visible")
+        }
+        
+
+        if(e.target.className.split(" ")[0] ==='autors'){
+         
+          sec_1.classList.toggle("active-visible--1")
+        }
+      
+  })
+
+</script>
   </body>
 </html>
