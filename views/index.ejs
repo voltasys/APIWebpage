@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ImgGen</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-form">
+        <form method="post" action="/Img">
+          <input id="search" type="number" name="img" placeholder="Search.." />
+          <input id="btn" type="submit" value="Go" />
+        </form>
+      </div>
+      <div class="container-img">
+         <%if(locals.data.photos){%>
+         <%data.photos.forEach(img=>{%>
+         <a href=<%= img.url%>><img src=<%= img.src.small%> alt="Nature"/> </a>
+         <%})%>
+         <%}else{%>
+        <img src=<%= data%> alt="Random"/>
+        <%}%>
+      </div>  
+     </div>
+   
+  </body>
+</html>
