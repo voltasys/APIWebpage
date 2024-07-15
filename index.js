@@ -17,12 +17,29 @@ const port = 3000;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const query = "Airport";
+let query = "Tigers";
 
 app.get("/", (req, res) => {
-  client.photos.search({ query, page: 15, per_page: 10 }).then((photos) => {
-      res.render("index.ejs", { data: photos });
-    }).catch((error) => res.sendStatus(404));
+  console.log(req.body);
+  client.photos
+    .search({ query, page: 15, per_page: 10 })
+    .then((photos) => {
+      console.log("123456789");
+      res.render("index.ejs", { data: photos, dataset:"homepage" });
+    })
+    .catch((error) => res.sendStatus(404));
+});
+
+app.post("/", (req, res) => {
+  console.log(req.body);
+  query = req.body.name;
+  client.photos
+    .search({ query, page: 100, per_page: 5 })
+    .then((photos) => {
+      console.log(photos);
+      res.render("index.ejs", { data:photos, dataset:query });
+    })
+    .catch((error) => res.sendStatus(404));
 });
 
 //Number(req.body.img)
@@ -34,7 +51,7 @@ app.get("/", (req, res) => {
 //       res.render("index.ejs", { data: photo.src.medium });
 //     }).catch((error) => res.sendStatus(500));
 // });
-
+console.log(query)
 app.listen(port, function () {
   console.log(`SERVEROT SLUSA NA PORTA: ${port} `);
 });

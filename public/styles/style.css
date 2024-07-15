@@ -1,160 +1,206 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+--hei:"---"
+}
+
 *{
     box-sizing: border-box;
 }
-
 body{
-    background-color: hsl(0, 64%, 89%);
-    margin: 0;
-}
-img{
-    height:auto;
-    max-width: 100%;
-    margin:15px;
-    display: block;
-    box-shadow: 3px 5px 14px 2px rgba(0,0,0,0.75);;
-    border-radius: 15px;
-    transition: transform 0.5s ease;
-
-}
-img:hover{
-    transform: scale(1.1);
-    cursor: pointer;
-    
-}
-.container{
-    position: absolute;
-    top:0px;
-    width: 75%;
-    left: 25%;
-    height: auto;
-    background-color: #845ac8;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    flex-flow: row;
-    flex-direction: column;
-    box-shadow: 3px 5px 14px 2px rgba(0,0,0,0.75);;
-    border-radius: 15px;
-    padding: 5px;
-    margin:0;
-
-}
-
-.container-img{
-    display: flex;
-    align-items: start;
-    justify-content: start;
-    flex-wrap: wrap;
-    margin-top: 0px;
-}
-
-.nav{
-    position: fixed;
-    top:0;
-    margin:0;
-    padding: 0;
-    width: 25%;
     background-color: #f1f1f1;
-    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+   
+}
+
+nav{
+    position: fixed;
+    width: 15%;
+    background-color: #f1f1f1;
+    height:100vh;
     overflow: auto;
+    left: 10px;
+    border-left: 2px #04ab solid ;
+    top:0;
+    box-shadow: 10px 7px 7px -5px rgba(0,0,0,0.61);
+-webkit-box-shadow: 10px 7px 7px -5px rgba(0,0,0,0.61);
+-moz-box-shadow: 10px 7px 7px -5px rgba(0,0,0,0.61);
+border-radius: 5px;
 
-}
-ul {
-    margin-top: 50px;
-    list-style-type: none;
-    padding: 0;
-
-}
-
-ul #sec{
-    margin: 0;
-    list-style-type: none;
-    padding-left: 20px;
-}
-li a{
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
 
 }
 
-li a.active--1{
-    background-color: #04aa6d;
-    color: white;
+input{
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    font-style: italic;
+    font-weight: bold;
+
 }
-li a:hover:not(.active--1){
+input:hover{
     background-color: #555;
     color: white;
+    cursor: pointer;
+
 }
-.logo-img img{
-    position: fixed;
-    margin:0;
-    top:10px;
-    left:10px;
-    height: 50px;
-    width: auto;
-    object-fit:contain;
-}
-
-
-
-
-#sec-1{
+h3{
     margin: 0;
-    padding-left: 20px;
-}
-.logo-img{
-  display: block;
-  margin:15px;
-  padding: 5px;
-
+    padding: 10px;
+    font-size: 0.8rem;
+   
+   
 
 }
-.title{
-    position: absolute;
-    left:50%;
-    top:10px;
-    transform: translateX(-50%);
+h3:hover{
+    background-color: #04aa6d;
+    cursor: pointer;
+    box-shadow: 10px 7px 7px -5px rgba(0,0,0,0.61);
+
+}
+h3.menu{
+    background-color: #04ab;
 }
 
-#sec{
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 1.5s, visibility 1.5s;
+.get-pic-title.active{
+    background-color: #04aa6d;
+    box-shadow: 10px 7px 7px -5px rgba(0,0,0,0.61);
 }
-#sec.active-visible{
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 1.5s, visibility 1.5s;
+.get-pic-title{
+    background-color: transparent;
 }
 
-#sec-1{
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 1.5s, visibility 1.5s;
-    transform: translateY(-171px);
-    transition: transform 0.5s ease-in;
+.wine-title.active{
+    background-color: #04aa6d;
+    box-shadow: 10px 7px 7px -5px rgba(0,0,0,0.61);
 }
-#sec-1.active-visible{
-    transform: translateY(0px);
-    transition: transform 0.5s ease-in;
+.wine-title{
+    background-color: transparent;
+}
+.book-title{
+    background-color: transparent;
     
 }
-
-.autors{
-    transform: translateY(-171px);
-    transition: transform 0.5s ease-in;
+.book-title.active{
+    
+    background-color: #04aa6d;
+    box-shadow: 10px 7px 7px -5px rgba(0,0,0,0.61);
 }
 
 
-.autors.active-visible{
-    transform: translateY(0px);
-    transition: transform 0.5s ease-in;
+.get-pic.active{
+    opacity: 0;
+    display: block;
+    line-height:0;
+    height: 0px;
+    transition: height 0.5s ease-in, opacity 1s ease-in;
+    overflow: hidden;
+   
+   
 }
-ul #sec-1.active-visible--1{
+.get-pic{
     opacity: 1;
-    visibility: visible;
-    transition: opacity 1.5s, visibility 1.5s;
+    height: var(--hei);
+    transition: height 0.5s ease-in, opacity 1s ease-in;
+   
+
+}
+.wine.active{
+    display: block;
+    line-height:0;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease-in, opacity 1s ease-in;
+    opacity: 0;
+}
+.wine{
+    opacity: 1;
+    height:228px;
+    transition: height 0.5s ease-out, opacity 1s ease-in;
+   
+
+}
+
+
+.book.active{
+    display: block;
+    line-height:0;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease-in, opacity 1s ease-in;
+    opacity: 0;
+}
+.book{
+    opacity: 1;
+    height:228px;
+    transition: height 0.5s ease-out, opacity 1s ease-in;
+
+}
+
+.container{
+    position: absolute;
+    left:16%;
+    top:0;
+    height: auto;
+    width: 84%;
+    border-radius: 15px;
+    background-color: #04aa6d;
+    box-shadow: -5px 5px 7px 2px rgba(0,0,0,0.61);
+    overflow-y:auto;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+
+   
+}
+img{
+    border: #04aa6d 1px solid;
+    border-radius: 15px;
+    box-shadow: 5px 5px 7px 2px rgba(0,0,0,0.61);
+    margin-top:10px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
+}
+.text{
+    margin: 0;
+    
+}
+#input-search{
+    border: 1px solid black;
+    width: 100%;
+    margin: 0;
+    
+}
+#input-search:hover{
+    background-color: transparent;
+}
+#input-search:focus{
+    outline: none;
+    background-color: transparent;
+
+}
+#submit-search{
+    background-color: #4544a4;
+    width: 50%;
+    transform: translateX(50%);
+    
+
+}
+#submit-search:active{
+    background-color: #4544a4;
+    box-shadow:1px 1px 1px 2px rgba(0,0,0,0.2) ;
+
+}
+
+.get-form{
+    visibility: hidden;
+    height: 0;
 }

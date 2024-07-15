@@ -7,83 +7,221 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
+    <nav class="container-nav">
+      <h3 class="menu">PICTURE SEARCHER</h3>
+      <h3 class="get-pic-title">GET PICTURE</h3>
+      <div class="get-pic active" data-active=<%= dataset%>>
+          <form method="post" action="/">
+          <input id="use-value" type="hidden" name="name" placeholder="Nature" value="Nature" />
+          <input id="Nature" type="submit" value="NATURE" />
+           </form>
+         
+              <form method="post" action="/">
+          <input id="use-value" type="hidden" name="name" placeholder="Search.." value="People" />
+          <input  id="People" type="submit" value="PEOPLE" />
+              </form>
+         
+              <form method="post" action="/">
+          <input id="use-value" type="hidden" name="name" placeholder="Search.." value="Animals" />
+          <input id="Animals"  type="submit" value="ANIMALS" />
+              </form>
+
+              <form method="post" action="/">
+                <input id="use-value" type="hidden" name="name" placeholder="Search.." value="Cars" />
+                <input id="Cars"   type="submit" value="CARS" />
+              </form>
+
+              <form method="post" action="/">
+                <input id="use-value" type="hidden" name="name" placeholder="Search.." value="Lakes" />
+                <input id="Lakes"  type="submit" value="LAKES" />
+              </form>
+
+              <form method="post" action="/">
+                <input id="use-value" type="hidden" name="name" placeholder="Search.." value="Black" />
+                <input id="Black"  type="submit" value="Black Pic" />
+                    </form>
+
+                 <form method="post" action="/">
+                      <input id="use-value" type="hidden" name="name" placeholder="Search.." value="White" />
+                      <input id="White"  type="submit" value="White Pic" />
+                  </form>
+                  <form method="post" action="/">
+                            <input id="use-value" type="hidden" name="name" placeholder="Search.." value="Yellow" />
+                            <input id="Yellow"  type="submit" value="Yellow Pic" />
+                  </form>    
+                  
+          <form method="post" action="/">
+                    <input id="use-value" type="hidden" name="name" placeholder="Search.." value="Red" />
+                    <input id="Red"  type="submit" value="Red Pic" />
+          </form>     
+          
+          <form method="post" action="/">
+            <input id="use-value" type="hidden" name="name" placeholder="Search.." value="Roads" />
+            <input id="Roads"  type="submit" value="ROADS" />
+  </form>   
+
+
+
+
+
+
+
+
+
+      </div>
+
+      <h3 class="wine-title">GET VIDEOS</h3>
+      <div class="wine active">
+          <form method="get" action="www.programiz.com/search">
+          <input type="hidden" name="location" placeholder="Search.." />
+          <input type="submit" value="NATURE" />
+           </form>
+         
+              <form method="get" action="www.programiz.com/search">
+          <input type="hidden" name="location" placeholder="Search.." />
+          <input type="submit" value="PEOPLE" />
+              </form>
+         
+              <form method="get" action="www.programiz.com/search">
+          <input type="hidden" name="location" placeholder="Search.." />
+          <input type="submit" value="AIRPORT" />
+              </form>
+      </div>
+
+      <h3 class="book-title">BOOKS</h3>
+      <div class="book active">
+          <form method="get" action="www.programiz.com/search">
+          <input type="hidden" name="location" placeholder="Search.." />
+          <input type="submit" value="Goooooooooo" />
+           </form>
+         
+              <form method="get" action="www.programiz.com/search">
+          <input type="hidden" name="location" placeholder="Search.." />
+          <input type="submit" value="Goooooooooo" />
+              </form>
+         
+              <form method="get" action="www.programiz.com/search">
+          <input type="hidden" name="location" placeholder="Search.." />
+          <input type="submit" value="Goooooooooo" />
+              </form>
+            <form method="get" action="www.programiz.com/search">
+                <input type="hidden" name="location" placeholder="Search.." />
+                <input type="submit" value="Goooooooooo" />
+            </form>
+              <form method="get" action="www.programiz.com/search">
+                      <input type="hidden" name="location" placeholder="Search.." />
+                      <input type="submit" value="Goooooooooo" />
+              </form>
+      </div>
+             
+   
+  </nav>
   
-  <nav class="nav">
-    <div class="logo-img">
-      <img src="logo\pexels-photo-6032147.webp" alt="Logo">
-      <h2 class="title">Sajt API</h2>
+  
+  
+ 
+
+
+
+
+  <div class="container">
+    <form class="form" method="post" action="/">
+      <label for="name">Search pictures</label>
+      <input id="input-search" type="text" name="name" placeholder="Search by themes" />
+      <input id="submit-search" type="submit" value="Search" />
+  </form>
+  <form class="get-form" method="get" action="/">
+  <label for="name">Place theme for picture</label>
+  <input id="input-search" type="text" name="name" placeholder="Search.." />
+  <input id="submit-search" type="submit" value="Search" />
+  </form>
+  
+    <h2>Total rezults: <%= data.total_results%> pictures from Pexels.com</h2>
+  
+
+
+    <div class="container-img">
+      <%if(locals.data.photos){%>
+      <%data.photos.forEach(img=>{%>
+      <a href=<%= img.url%> target="_blank"><img src=<%= img.src.large%> alt="Nature"/> </a>
+      <p class="text title"><%= img.alt%></p>
+      <p class="text photo">Photographer: <%= img.photographer%></p>
+      <p class="text link"><a href=<%= img.photographer_url%> target="_blank">Photographer link >>></a></p>
+      <%})%>
+      <%}else{%>
+     <img src=<%= data%> alt="Random"/>
+     <%}%>
     </div>
       
-   
-    
-      <ul id="main">
-        <li><a href="#" class="home active--1">HOME</a></li>
-        <li><a href="#" class="get-pic">GET PICTURE</a>
-          <ul id="sec">
-            <li><a href="#">Nature</a></li>
-            <li><a href="#">Animals</a></li>
-            <li><a href="#">People</a></li>
-            <li><a href="#">Airports</a></li>
-            <li><a href="#">Lakes</a></li>
-          </ul>
-        </li>
-        <li ><a href="#" class="autors">LIST OF AUTORS</a>
-          <ul id="sec-1">
-            <li><a href="#">Nature</a></li>
-            <li><a href="#">Animals</a></li>
-            <li><a href="#">People</a></li>
-            <li><a href="#">Airports</a></li>
-            <li><a href="#">Lakes</a></li>
-          </ul>
-        </li>
-
-      </ul>
-
-
-    </nav>
-
-
-    <div class="container">
-      <div class="container-img">
-         <%if(locals.data.photos){%>
-         <%data.photos.forEach(img=>{%>
-         <a href=<%= img.url%>><img src=<%= img.src.small%> alt="Nature"/> </a>
-         <%})%>
-         <%}else{%>
-        <img src=<%= data%> alt="Random"/>
-        <%}%>
-      </div>  
-     </div>
+  
+  </div>
+ 
    
 <script>
-       const nav = document.querySelector(".nav")
-       const getPic = document.querySelector(".get-pic")
-        
-       const sec = document.getElementById("sec")
-       console.log(sec)
-       const autors = document.querySelector(".autors")
-       const sec_1 = document.getElementById("sec-1")
-       const x =sec.querySelectorAll('li');
-       console.log(x)
+const getPic = document.querySelector('.get-pic')
+const z = getPic.querySelectorAll("#use-value")
+console.log(z)
 
 
- const y= "abcdef"
-  nav.addEventListener('click', function(e){
-    console.log(y.split(" ")[0])
-        console.log(e.target.className.split(" ")[0])
-        if (e.target.className ==='get-pic'){
-        sec.classList.toggle("active-visible")
-        autors.classList.toggle("active-visible")
-        sec_1.classList.toggle("active-visible")
-        }
-        
 
-        if(e.target.className.split(" ")[0] ==='autors'){
-         
-          sec_1.classList.toggle("active-visible--1")
-        }
-      
-  })
+const wine=document.querySelector('.wine')
+const book = document.querySelector(".book")
+
+const getPicTitle = document.querySelector('.get-pic-title')
+const wineTitle=document.querySelector('.wine-title')
+const bookTitle = document.querySelector(".book-title")
+const inputNature= document.getElementById("Nature")
+const inputPeople =document.getElementById("People")
+
+
+/////////////////////////FUNCTIONS ////////////////////////////////////////////
+const pickHeight = function(element){
+
+  element.classList.remove("active") 
+  const x = String(element.getBoundingClientRect().height);
+  element.classList.add("active") 
+  return x;
+}
+
+
+
+console.log(pickHeight(getPic))
+document.documentElement.style.setProperty(`--hei`, `${pickHeight(getPic)}px`);
+
+console.log(getPic.dataset.active)
+
+////////////////////// INIT STATUS ////////////////////////////////////////
+z.forEach(ele=>{
+  if (getPic.dataset.active===ele.getAttribute("value"))
+{
+  getPic.classList.remove("active")
+  getPic.dataset.active="";
+  document.getElementById(`${ele.getAttribute("value")}`).style.backgroundColor="#555"
+  getPicTitle.classList.add("active")
+}
+})
+
+/////////////// LISTENERS /////////////////////////////////////////
+getPicTitle.addEventListener("click", function(e){
+    // console.log(e)
+    getPic.classList.toggle("active")
+    getPicTitle.classList.toggle("active")
+    const x = getPic.getBoundingClientRect().height
+
+})
+
+wineTitle.addEventListener("click", function(e){
+    console.log(e)
+    wine.classList.toggle("active")
+    wineTitle.classList.toggle("active")
+   
+})
+bookTitle.addEventListener("click", function(e){
+    console.log(e)
+    book.classList.toggle("active")
+    bookTitle.classList.toggle("active")
+   
+})
 
 </script>
   </body>
